@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wordle Solver</title>
+    <link
+        rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="static/css/style.css">
+</head>
+<body class="bg-dark">
+    <div class="wrapper">
+        <nav class="navbar navbar-dark bg-dark navbar-expand-lg">
+            <a class="navbar-brand" href="index.html">Wordle Solver</a>
+        </nav>
+        <div class="jumbotron">
+            <h1 class="display-4">Wordle Solver</h1>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                
+                <!-- Where to Start? -->
+                <div class="col-md-6">
+                    <h1>Where to Start?</h1>
+                    <h5>The Best Opening Guesses</h5>
+                    <p>
+                        <br>
+                        If you're in the camp that takes this quick-hitting daily game super seriously, then you're gonna need your very own starting word. This word is your security blanket, an instant provider of yellow and green squares that will ensure your streak persists until the sun stops burning (or at least until the 5-letter word list runs out).
+                        <br><br>
+                        Aside from the obvious requirements of no repeating letters and plenty of vowels, the best starting guesses have two things going for them. First and foremost, their letters appear very frequently in the other 12,946 words from Wordle's list of acceptable guesses. Secondly, the positioning of their letters is common, heightening their chances to produce the sacred green square right off the bat.
+                        <br><br>
+                        There are a handful of words that you can comfortably put in your first-guess holster. All the words in the table to the right should light up your first row fairly consistently with vibrant shades of yellows and greens.
+                        <br><br>
+                        Here's a secret: Choose one that you recognize, it has a better chance of being the solution one day. When that day comes, your friends will never hear the end of it.
+                    </p>
+                </div>
+                
+                <!-- Table -->
+                <div class="col-md-6">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Rank</th>
+                                <th>1st Guess</th>
+                                <th>Primary Score</th>
+                                <th>Secondary Score</th>
+                            </tr>
+                        </thead>
+                        <tbody id="top-ten"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        
+        <br><br>
+        
+        <!-- Solver -->
+        <!-- <div class="container-fluid">
+            <h1>Let's Get to Solving</h1>
+            <br>
+            <div class="row">
+                <form class="next-guess">
+                    <label for="firstguess">What word did you choose for your first guess?</label><br>
+                    <input type="text" id="firstguess" name="firstguess"><br>
+                    <label for="firstguessgrey">Which letters in "soare" are grey? (Ex: orhc)</label><br>
+                    <input type="text" id="firstguessgrey" name="firstguessgrey"><br>
+                    <label for="firstguessyellow">Which letters in "soare" are yellow? (Ex: orhc)</label><br>
+                    <input type="text" id="firstguessyellow" name="firstguessyellow"><br>
+                    <label for="firstguessgreen">Which letters in "soare" are green? (Ex: orhc)</label><br>
+                    <input type="text" id="firstguessgreen" name="firstguessgreen"><br>
+                </form>
+            </div>
+        </div>
+
+        <br><br><br><br><br><br> -->
+
+        <!-- Solver Performance Metrics -->
+        <div class="container-fluid">
+            <h1>Solver Performance Metrics</h1>
+            <h5>How Successful Were The Top 10 First-Guess Words In Solving Past Wordles Using Our Solver Script?</h5>
+            <p>(252 past wordle solutions as of 02-25-22)</p>
+            <br>
+            <div class="row">
+                <table class="table table-striped" style="max-width:1250px;margin-left:auto;margin-right:auto;">
+                    <thead>
+                        <tr>
+                            <th style="font-size: 18px">Rank</th>
+                            <th style="font-size: 18px">1st Guess</th>
+                            <th style="font-size: 18px">Solve %</th>
+                            <th style="font-size: 18px">Avg Result</th>
+                            <th style="font-size: 18px">1st Try Wins</th>
+                            <th style="font-size: 18px">2nd Try Wins</th>
+                            <th style="font-size: 18px">3rd Try Wins</th>
+                            <th style="font-size: 18px">4th Try Wins</th>
+                            <th style="font-size: 18px">5th Try Wins</th>
+                            <th style="font-size: 18px">6th Try Wins</th>
+                        </tr>
+                    </thead>
+                    <tbody id="guess-metrics"></tbody>
+                </table>
+            </div>
+        </div>
+
+
+        <!-- <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-3">
+                    <form class="bg-dark">
+                        <p>Filter Search</p>
+                        <ul class="bg-dark list-group">
+                            <li class="bg-dark list-group-item">
+                                <label for="date">Enter Date</label>
+                                <input type="text" placeholder="1/10/2010" id="datetime" />
+                            </li>
+                            <li class="bg-dark list-group-item">
+                                <button id="filter-btn" type="button" class="btn btn-dark">Filter Table</button>
+                            </li>
+                        </ul>
+                    </form>
+                </div>
+                <div class="col-md-9">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>City</th>
+                                <th>State</th>
+                                <th>Country</th>
+                                <th>Shape</th>
+                                <th>Duration</th>
+                                <th>Comments</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+        </div> -->
+
+        
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.11.0/d3.js"></script>
+    <script src="static/js/top_guesses.js"></script>
+    <script src="static/js/top_guesses_metrics.js"></script>
+    <script src="static/js/app.js"></script>
+    
+</body>
+</html>
