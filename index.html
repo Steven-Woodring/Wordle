@@ -12,6 +12,7 @@
         crossorigin="anonymous"
     />
     <link rel="stylesheet" href="static/css/style.css">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 </head>
 <body class="bg-dark">
     <div class="wrapper">
@@ -34,14 +35,23 @@
                         <br><br>
                         Aside from the obvious requirements of no repeating letters and plenty of vowels, the best starting guesses have two things going for them. First and foremost, their letters appear very frequently in the other 12,946 words from Wordle's list of acceptable guesses. Secondly, the positioning of their letters is common, heightening their chances to produce the sacred green square right off the bat.
                         <br><br>
-                        There are a handful of words that you can comfortably put in your first-guess holster. All the words in the table to the right should light up your first row fairly consistently with vibrant shades of yellows and greens.
+                        There are a handful of words that you can comfortably put in your first-guess holster. All of the words in the chart to the right should light up your first row fairly consistently with vibrant shades of yellows and greens.
                         <br><br>
                         Here's a secret: Choose one that you recognize, it has a better chance of being the solution one day. When that day comes, your friends will never hear the end of it.
                     </p>
                 </div>
                 
-                <!-- Table -->
+                <!-- Grouped Bar Chart for Top10 Words -->
                 <div class="col-md-6">
+                    <h3>Scoring the Best Starting Guesses</h3>
+                    <div id="top-ten-bar"></div>
+                </div>
+                
+
+
+                
+                <!-- Table -->
+                <!-- <div class="col-md-6">
                     <table class="table table-striped">
                         <thead>
                             <tr>
@@ -53,9 +63,11 @@
                         </thead>
                         <tbody id="top-ten"></tbody>
                     </table>
-                </div>
+                </div> -->
             </div>
         </div>
+
+
         
         <br><br>
         
