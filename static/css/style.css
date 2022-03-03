@@ -1,1 +1,35 @@
-
+body {
+    background-color: #1C1C1C;
+    color: #f7f7f7;
+}
+.jumbotron {
+    background-color: #1C1C1C;
+    background-size: 100% 100%;
+    text-align: center;
+}
+form {
+    text-align: center;
+    margin: 0 auto; 
+    width: 500px;
+}
+h1 {
+    text-align: center;
+    margin: 0 auto;
+}
+h5 {
+    text-align: center;
+    margin: 0 auto;
+}
+p {
+    text-align: center;
+    margin: 0 auto;
+}
+th, td {
+    text-align: center;
+}
+th {
+    font-size: 20px;
+}
+tr:nth-child(even) {
+    background-color: #1C1C1C;
+}
