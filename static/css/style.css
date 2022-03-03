@@ -12,11 +12,7 @@ form {
     margin: 0 auto; 
     width: 500px;
 }
-h1 {
-    text-align: center;
-    margin: 0 auto;
-}
-h5 {
+h1, h3, h5 {
     text-align: center;
     margin: 0 auto;
 }
