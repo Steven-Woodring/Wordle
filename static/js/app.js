@@ -43,13 +43,13 @@ let barData = [greenTrace, yellowTrace];
 let barLayout = {
     barmode: "stack",
     yaxis: {autorange: "reversed"},
-    height: 475,
+    height: 500,
     xaxis: {
-        //showticklabels: false
+        title: {text: "Total Expected Colored Squares"}
     },
     margin: {
-        t: 10,
-        b: 30,
+        t: 20,
+        b: 50,
         l: 80,
         r: 30,
         pad: 5
