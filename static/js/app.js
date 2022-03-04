@@ -1,41 +1,57 @@
 // Top-Ten Bar Chart
 
-// Create arrays for word with rank, primary score, and secondary score from top_guesses.js
-let topFirstGuessWords = guesses.map(guessObj => `${guessObj.Rank}) ${guessObj.Word}`);
-let firstGuessPrimaryScores = guesses.map(guessObj => guessObj.Primary_Score);
-let firstGuessSecondaryScores = guesses.map(guessObj => guessObj.Secondary_Score);
+// Take only the top10 guesses from the guessScores array
+bestGuessScores = guessScores.slice(0,10);
 
-// Primary score trace
-let primaryTrace = {
-    x: firstGuessPrimaryScores,
-    y: topFirstGuessWords,
-    name: "Letter Score",
-    type: "bar",
-    orientation: "h"
-}
+// Create arrays for word with rank, primary score, and secondary score from top_guesses.js
+let topFirstGuessWords = bestGuessScores.map(guessObj => `${guessObj.Rank}) ${guessObj.Word}`);
+let firstGuessYellowScores = bestGuessScores.map(guessObj => guessObj.Expected_Yellow_Squares);
+let firstGuessGreenScores = bestGuessScores.map(guessObj => guessObj.Expected_Green_Squares);
+let firstGuessTotalScores = bestGuessScores.map(guessObj => guessObj.Expected_Yellow_Squares + guessObj.Expected_Green_Squares);
 
 // Secondary score trace
-let secondaryTrace = {
-    x: firstGuessSecondaryScores,
+let greenTrace = {
+    x: firstGuessGreenScores,
     y: topFirstGuessWords,
-    name: "Positioning Score",
+    name: "Expected Green<br>     Squares",
     type: "bar",
-    orientation: "h"
+    orientation: "h",
+    text: firstGuessGreenScores.map(String),
+    textposition: "auto",
+    customdata: firstGuessYellowScores,
+    hovertemplate:
+        "<b>%{y}</b><br><br>" +
+        "Expected Green Squares: %{x:.2f}<br>" +
+        "Expected Yellow Squares: %{customdata:.2f}<br>" +
+        "<extra></extra>",
+    hoverlabel: {bgcolor: "white"}
+}
+
+// Primary score trace
+let yellowTrace = {
+    x: firstGuessYellowScores,
+    y: topFirstGuessWords,
+    name: "Expected Yellow<br>     Squares",
+    type: "bar",
+    orientation: "h",
+    text: firstGuessYellowScores.map(String),
+    textposition: "auto",
+    hoverinfo: "none"
 }
 
 // Combine traces
-let barData = [primaryTrace, secondaryTrace];
+let barData = [greenTrace, yellowTrace];
 
 // Setup bar chart layout
 let barLayout = {
-    barmode: "overlay",
+    barmode: "stack",
     yaxis: {autorange: "reversed"},
-    height: 500,
+    height: 475,
     xaxis: {
-        showticklabels: false
+        //showticklabels: false
     },
     margin: {
-        t: 15,
+        t: 10,
         b: 30,
         l: 80,
         r: 30,
@@ -43,11 +59,12 @@ let barLayout = {
     },
     plot_bgcolor: "#343a40",
     paper_bgcolor: "#343a40",
-    colorway: ["#3069B9", "#699FEA"],
+    colorway: ["#54B447", "#D3DB1B"],
     legend: {
         font: {size: 17},
         orientation: "h",
-        x: 0.1,
+        traceorder: "normal",
+        x: 0.08,
         y: 1.15
     },
     font: {
