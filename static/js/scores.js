@@ -77,9 +77,13 @@ let distinctWords = words.filter(word => !(repeatLetterWords.includes(word)));
 // Initialize empty array to hold all the guessScore objects
 let guessScores = [];
 
+// Create array to hold words that will be run through the function
+// in order to speed up the website
+let topFirstGuesses = ["aeros", "soare", "arose", "reais", "raise", "serai", "arise", "aesir", "lares", "rales"];
+
 // For each guess in words array, run scoreGuess function on the guess
 // and push the resulting object to the guessScores array
-distinctWords.forEach(guess => guessScores.push(scoreGuess(guess)));
+topFirstGuesses.forEach(guess => guessScores.push(scoreGuess(guess)));
 
 // Sort guessScores array by total expected squares, then by expected green squares, descending
 guessScores.sort(function (a, b) {

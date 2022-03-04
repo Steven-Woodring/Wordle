@@ -1,13 +1,10 @@
 // Top-Ten Bar Chart
 
-// Take only the top10 guesses from the guessScores array
-bestGuessScores = guessScores.slice(0,10);
-
 // Create arrays for word with rank, primary score, and secondary score from top_guesses.js
-let topFirstGuessWords = bestGuessScores.map(guessObj => `${guessObj.Rank}) ${guessObj.Word}`);
-let firstGuessYellowScores = bestGuessScores.map(guessObj => guessObj.Expected_Yellow_Squares);
-let firstGuessGreenScores = bestGuessScores.map(guessObj => guessObj.Expected_Green_Squares);
-let firstGuessTotalScores = bestGuessScores.map(guessObj => guessObj.Expected_Yellow_Squares + guessObj.Expected_Green_Squares);
+let topFirstGuessWords = guessScores.map(guessObj => `${guessObj.Rank}) ${guessObj.Word}`);
+let firstGuessYellowScores = guessScores.map(guessObj => guessObj.Expected_Yellow_Squares);
+let firstGuessGreenScores = guessScores.map(guessObj => guessObj.Expected_Green_Squares);
+let firstGuessTotalScores = guessScores.map(guessObj => guessObj.Expected_Yellow_Squares + guessObj.Expected_Green_Squares);
 
 // Secondary score trace
 let greenTrace = {
