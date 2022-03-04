@@ -1,7 +1,7 @@
 // Top-Ten Bar Chart
 
 // Create arrays for word with rank, primary score, and secondary score from top_guesses.js
-let topFirstGuessWords = guessScores.map(guessObj => `${guessObj.Rank}) ${guessObj.Word}`);
+let topFirstGuessWords = guessScores.map(guessObj => guessObj.Word.toUpperCase());
 let firstGuessYellowScores = guessScores.map(guessObj => guessObj.Expected_Yellow_Squares);
 let firstGuessGreenScores = guessScores.map(guessObj => guessObj.Expected_Green_Squares);
 let firstGuessTotalScores = guessScores.map(guessObj => guessObj.Expected_Yellow_Squares + guessObj.Expected_Green_Squares);
