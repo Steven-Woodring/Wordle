@@ -12,6 +12,11 @@ form {
     margin: 0 auto; 
     width: 500px;
 }
+button {
+    text-align: center;
+    margin: 0 auto;
+    width: 200px;
+}
 h1, h3, h5 {
     text-align: center;
     margin: 0 auto;
