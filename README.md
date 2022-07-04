@@ -11,4 +11,6 @@
 
 <img width="1261" alt="Screen Shot 2022-07-03 at 1 49 35 PM" src="https://user-images.githubusercontent.com/95303422/177051452-8cc7a385-035f-435e-847e-b04d88d22860.png">
 
-#### I used D3.js to implement an automated solver into the webpage. The user must simply enter their first guess and the resulting colors of the squares, and the program will make a recommendation for the next guess. The process is repeated until the solution is discovered (hopefully within the 6-guess limit). The solver operates under the assumption that the user is playing in hard mode, in which the player cannot make a guess that excludes letters that they already know are in the word.
+#### I used D3.js to implement an automated solver into the webpage. The user must simply enter their first guess and the resulting colors of the squares, and the program will make a recommendation for the next guess. The process is repeated until the solution is discovered (hopefully within the 6-guess limit). The solver operates under the assumption that the user is playing in hard mode, in which the player cannot make a guess that excludes any letters that they already know are in the solution.
+
+![Screen_Recording_2022-07-03_at_2_32_38_PM_AdobeExpress](https://user-images.githubusercontent.com/95303422/177064507-d707f659-e957-45b0-a1d5-f835444c0d90.gif)
